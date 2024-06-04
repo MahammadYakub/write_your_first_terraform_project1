@@ -10,15 +10,14 @@ terraform {
 }
 
 provider "aws" {
-  region  = "us-west-2"
+  region  = "ap-south-1"
 }
 
-resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
-  instance_type = "t2.micro"
+resource "aws_s3_bucket" "example" {
+  bucket = "my-tf-test-bucket"
 
   tags = {
-    Name = "Terraform_Demo"
+    Name        = "My bucket"
+    Environment = "Dev"
   }
 }
-
